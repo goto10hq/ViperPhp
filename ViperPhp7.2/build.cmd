@@ -1,0 +1,1 @@
+docker build -t viper-php-7.2 .
