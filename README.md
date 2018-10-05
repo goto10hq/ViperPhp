@@ -1,5 +1,7 @@
 # Viper Php 7.2
 
+![](https://img.shields.io/docker/pulls/goto10hq/viper-php-7.2.svg?style=for-the-badge&logo=docker)
+
 Usage:
 
 ```docker pull goto10hq/viper-php-7.2```
