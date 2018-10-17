@@ -25,7 +25,7 @@ Php extensions:
 - Pdo MySql
 
 
-# Viper Php 7.2
+# Viper Php Cli 7.2
 
 ![](https://img.shields.io/docker/pulls/goto10hq/viper-php-cli-7.2.svg?style=for-the-badge&logo=docker)
 
