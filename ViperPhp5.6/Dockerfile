@@ -1,6 +1,9 @@
 FROM php:5.6-apache
 
-RUN apt-get update && apt-get install -y libpng-dev
+RUN apt-get update && \
+    apt-get install -y libpng-dev && \
+    apt-get install -y libjpeg62-turbo-dev && \
+    apt-get install -y libfreetype6-dev
 
 ENV NODE_VERSION 8.9.4
 ENV NODE_DOWNLOAD_SHA 21fb4690e349f82d708ae766def01d7fec1b085ce1f5ab30d9bda8ee126ca8fc
@@ -12,6 +15,7 @@ RUN curl -SL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-lin
 
 RUN npm i npm@latest -g
 
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install pdo_mysql
