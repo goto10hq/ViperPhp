@@ -1,0 +1,1 @@
+docker build -t viper-php-5.6 .
