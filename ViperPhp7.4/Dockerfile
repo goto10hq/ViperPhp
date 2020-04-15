@@ -4,7 +4,9 @@ RUN apt-get update && \
     apt-get install -y libpng-dev && \
     apt-get install -y libjpeg62-turbo-dev && \
     apt-get install -y libfreetype6-dev && \
-    apt-get install -y libzip-dev
+    apt-get install -y libzip-dev && \
+    apt-get install -y libsqlite3-dev && \
+    apt-get install -y libsqlite3-0
 
 ENV NODE_VERSION 12.15.0
 ENV NODE_DOWNLOAD_SHA 218279a33603b8bc958c46cce04c14851fd9d685bd21f5a39d6b98d08d80aae5
@@ -20,5 +22,6 @@ RUN docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/i
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo_sqlite
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
