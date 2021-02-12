@@ -1,4 +1,4 @@
-FROM php:7.4.2-apache
+FROM php:7.4.15-apache
 
 RUN apt-get update && \
     apt-get install -y libpng-dev && \
@@ -8,8 +8,8 @@ RUN apt-get update && \
     apt-get install -y libsqlite3-dev && \
     apt-get install -y libsqlite3-0
 
-ENV NODE_VERSION 12.15.0
-ENV NODE_DOWNLOAD_SHA 218279a33603b8bc958c46cce04c14851fd9d685bd21f5a39d6b98d08d80aae5
+ENV NODE_VERSION 15.8.0
+ENV NODE_DOWNLOAD_SHA c2b073c4421e62aa71f0cef929e61a3334853ab211119f8ea7601612c43cd71d
 RUN curl -SL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz" --output nodejs.tar.gz \
     && echo "$NODE_DOWNLOAD_SHA nodejs.tar.gz" | sha256sum -c - \
     && tar -xzf "nodejs.tar.gz" -C /usr/local --strip-components=1 \

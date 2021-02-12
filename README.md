@@ -12,11 +12,11 @@ OS:
 
 Basic ingredients:
 
-- PHP 7.4.2
+- PHP 7.4.15
 - Apache 2.4.38
-- Node 12.15.0
-- Npm 6.13.7
-- Composer 1.9.3
+- Node 15.8.0
+- Npm 7.5.3
+- Composer 2.0.9 
 
 Php extensions:
 
@@ -156,4 +156,5 @@ php --version
 apachectl -V
 node --version
 npm --version
+composer -V
 >
