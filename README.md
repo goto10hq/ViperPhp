@@ -1,3 +1,29 @@
+# Viper Php 8.1
+
+![](https://img.shields.io/docker/pulls/goto10hq/viper-php-7.4.svg?style=for-the-badge&logo=docker)
+
+Usage:
+
+```docker pull goto10hq/viper-php-8.1```
+
+OS:
+
+- Debian
+
+Basic ingredients:
+
+- PHP 8.1.2
+- Apache 2.4.52
+- Node 12.22.5
+- Npm 8.4.0
+- Composer 2.2.5
+
+Php extensions:
+
+- Gd
+- Zip
+- Pdo MySql
+
 # Viper Php 7.4
 
 ![](https://img.shields.io/docker/pulls/goto10hq/viper-php-7.4.svg?style=for-the-badge&logo=docker)
