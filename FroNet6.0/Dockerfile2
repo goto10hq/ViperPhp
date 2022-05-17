@@ -1,0 +1,13 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+RUN apt-get update \
+    && apt-get install -y --allow-unauthenticated \
+        libc6-dev \
+        libgdiplus \
+        libx11-dev \
+        python \
+        build-essential \
+        nodejs \
+        npm \
+        libpng-dev \
+     && rm -rf /var/lib/apt/lists/*
