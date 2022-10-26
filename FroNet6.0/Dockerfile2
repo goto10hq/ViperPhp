@@ -11,3 +11,11 @@ RUN apt-get update \
         npm \
         libpng-dev \
      && rm -rf /var/lib/apt/lists/*
+
+ENV NODE_VERSION 18.0.0
+ENV NODE_DOWNLOAD_SHA 6260d3526dff25d43451ea8e90e0174975b4cd067e8535dc1d85a6d6b29f3043
+RUN curl -SL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz" --output nodejs.tar.gz \
+    && echo "$NODE_DOWNLOAD_SHA nodejs.tar.gz" | sha256sum -c - \
+    && tar -xzf "nodejs.tar.gz" -C /usr/local --strip-components=1 \
+    && rm nodejs.tar.gz \
+    && ln -s /usr/local/bin/node /usr/local/bin/nodejs
