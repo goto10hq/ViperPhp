@@ -1,0 +1,21 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+RUN apt-get update \
+    && apt-get install -y --allow-unauthenticated \
+        libc6-dev \
+        libgdiplus \
+        libx11-dev \
+        python-is-python3 2to3 \
+        build-essential \
+        nodejs \
+        npm \
+        libpng-dev \
+     && rm -rf /var/lib/apt/lists/*
+
+ENV NODE_VERSION 24.1.0
+ENV NODE_DOWNLOAD_SHA 4d2beaa55d962c1b31d6a4663cc831087f79f83f304a066963b65c8f4495843f
+RUN curl -SL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz" --output nodejs.tar.gz \
+    && echo "$NODE_DOWNLOAD_SHA nodejs.tar.gz" | sha256sum -c - \
+    && tar -xzf "nodejs.tar.gz" -C /usr/local --strip-components=1 \
+    && rm nodejs.tar.gz \
+    && ln -s /usr/local/bin/node /usr/local/bin/nodejs
