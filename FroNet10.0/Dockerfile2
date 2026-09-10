@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 RUN apt-get update \
     && apt-get install -y --allow-unauthenticated \
@@ -12,8 +12,8 @@ RUN apt-get update \
         libpng-dev \
      && rm -rf /var/lib/apt/lists/*
 
-ENV NODE_VERSION 25.6.1
-ENV NODE_DOWNLOAD_SHA 3809fdbfd54829bad363b9db8e96ca3600509e2ff20ede74181cfc1ca8451ce3
+ENV NODE_VERSION 26.3.0
+ENV NODE_DOWNLOAD_SHA a6e65cc653e40c1653b77742f9185dbce3ff1f99fa2746d211bddb53530ef206
 RUN curl -SL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz" --output nodejs.tar.gz \
     && echo "$NODE_DOWNLOAD_SHA nodejs.tar.gz" | sha256sum -c - \
     && tar -xzf "nodejs.tar.gz" -C /usr/local --strip-components=1 \
